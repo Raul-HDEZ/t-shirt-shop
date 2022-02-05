@@ -268,7 +268,7 @@ class usuarioController{
 		}else{
 			$_SESSION['userMod'] = "failed";
 		}
-		header("Location:".base_url."");
+		header("Location:".base_url."usuario/editarUsuario");
 	}
 
 }
