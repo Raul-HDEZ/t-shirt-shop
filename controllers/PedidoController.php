@@ -129,7 +129,11 @@ class pedidoController{
 			// Recoger datos form
 			$id = $_POST['pedido_id'];
 			$estado = $_POST['estado'];
-			
+			if ($estado == "sended") {
+				$pedido = new Pedido();
+				$pedido->setId($id);
+				$pedido->quitaStock();
+			}
 			// Upadate del pedido
 			$pedido = new Pedido();
 			$pedido->setId($id);

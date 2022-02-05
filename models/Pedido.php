@@ -140,6 +140,16 @@ class Pedido{
 			
 		return $productos;
 	}
+
+	public function quitaStock(){
+		$sql = "SELECT * from lineas_pedidos where pedido_id= $this->id";
+		$res = $this->db->query($sql);
+
+		while ($ped = $res->fetch_object()) {
+			$mnt = "UPDATE productos set stock = stock - $ped->unidades where id = $ped->producto_id";
+			$this->db->query($mnt);
+		}
+	}
 	
 	public function save(){
 		$sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuario_id()}, '{$this->getProvincia()}', '{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'confirm', CURDATE(), CURTIME());";
