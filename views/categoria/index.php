@@ -22,16 +22,19 @@
 	<tr>
 		<th>ID</th>
 		<th>NOMBRE</th>
-		<th>TOTAL VENDIDO</th>
-		<th>STOCK</th>
+		<th>VALOR EN ALMACEN</th>
+		<th>NUMERO DE PRODUCTOS</th>
 	</tr>
 	<?php while($cat = $categorias->fetch_object()): ?>
 		<tr>
 			<td><?=$cat->id;?></td>
 			<td><?=$cat->nombre;?></td>
 			<!-- Gestion de Categorias -->
-			<td><?=$cat->totalSold;?>€</td>
-			<td><?=$cat->stock;?>€</td>
+			<td><?=$cat->valor_almacen;?>€</td>
+			<td><?php 
+			$asd = new Categoria();
+			echo $asd->nprod($cat->id);
+			?></td>
 			<td>
 				<a href="<?=base_url?>categoria/editar&id=<?=$cat->id?>" class="button button-gestion">Editar</a>
 				<a href="<?=base_url?>categoria/eliminar&id=<?=$cat->id?>" class="button button-gestion button-red">Eliminar</a>

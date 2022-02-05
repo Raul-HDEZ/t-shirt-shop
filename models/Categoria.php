@@ -1,12 +1,14 @@
 <?php
 
+use Mpdf\Tag\VarTag;
+
 class Categoria{
 	private $id;
 	private $nombre;
 	private $db;
 	// Gestion de Categorias
-	private $totalSold;
-	private $stock;
+	private $valor_almacen;
+	private $nprod;
 	// Fin Gestion de Categorias
 
 	public function __construct() {
@@ -52,8 +54,17 @@ class Categoria{
 	}
 
 	public function getAll(){
-		$categorias = $this->db->query("SELECT * , (SELECT SUM(unidades*precio) FROM lineas_pedidos l, productos p WHERE l.producto_id=p.id AND p.categoria_id = c.id) AS 'totalSold', (SELECT sum(stock*precio) FROM productos WHERE categoria_id = c.id) AS 'stock' FROM categorias c ORDER BY id DESC ");
+		$categorias = $this->db->query("SELECT * , (SELECT sum(stock*precio) FROM productos WHERE categoria_id = c.id) AS 'valor_almacen' FROM categorias c ORDER BY id DESC ");
+		//while ($cat = $categorias->fetch_object()) {
+		//	$cat->nprod = self::nprod($cat->id);
+		//}
 		return $categorias;
+	}
+
+	public function nprod($id){
+		$nprod = $this->db->query("SELECT COUNT(id) as 'num' FROM productos WHERE categoria_id = " .$id."");
+		$res = $nprod->fetch_array()[0];
+		return $res;
 	}
 	
 	public function getOne(){
