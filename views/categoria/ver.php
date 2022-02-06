@@ -23,15 +23,15 @@
 							<td><?=$product->precio?> $</td>
 						</tr>
 					</table>
-					<a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="orange button">Oferta - Comprar</a>
+					<a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="btn btn-warning w-100">Oferta · Comprar</a>
 					<?php else :?>
 						<p><?=$product->precio?> $
-					<a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="button">Comprar</a>
+					<a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="btn-success btn w-100">Comprar</a>
 				<?php endif ?>
 			<?php else :?>
 				<!--Cambio el boton cuando no hay stock-->
 				<p><?=$product->precio?> $
-				<a href="" class="button-red">Sin Stock</a>
+				<a href="" class="btn-danger btn w-100">Sin Stock</a>
 			<?php endif ?>
 				</p>
 			</div>

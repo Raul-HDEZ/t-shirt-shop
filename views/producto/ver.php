@@ -15,15 +15,15 @@
 				<!--Muestro si esta de oferta-->
 				<p style="text-decoration: line-through;"><?=($product->precio)*1.40?> $</p>
 				<p><?=$product->precio?> $</p>
-				<a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="orange button">Oferta - Comprar</a>
+				<a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="btn btn-warning w-40 text-dark">Oferta · Comprar</a>
 				<?php else :?>
-					<p><?=$product->precio?> $
-				<a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="button">Comprar</a>
+					<p><?=$product->precio?> $</p>
+				<a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="btn-success btn w-40 text-dark">Comprar</a>
 			<?php endif ?>
 		<?php else :?>
 			<!--Cambio el boton cuando no hay stock-->
-			<p><?=$product->precio?> $
-			<a href="" class="button-red">Sin Stock</a>
+			<p><?=$product->precio?> $ </p>
+			<a href="" class="btn-danger btn w-40 text-dark	">Sin Stock</a>
 		<?php endif ?>
 			</p>
 		</div>
