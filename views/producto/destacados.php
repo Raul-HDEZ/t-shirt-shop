@@ -1,12 +1,12 @@
 <h1>Algunos de nuestros productos</h1>
 
 <?php while($product = $productos->fetch_object()): ?>
-	<div class="product">
+	<div class="product container-fluid m-auto col-lg-4 col-sm-12">
 		<a href="<?=base_url?>producto/ver&id=<?=$product->id?>">
 			<?php if($product->imagen != null): ?>
-				<img src="<?=base_url?>uploads/images/<?=$product->imagen?>" />
+				<img alt="<?= $product->nombre ?>" src="<?=base_url?>uploads/images/<?=$product->imagen?>" />
 			<?php else: ?>
-				<img src="<?=base_url?>assets/img/camiseta.png" />
+				<img alt="<?= $product->nombre?>"src="<?=base_url?>assets/img/camiseta.png" />
 			<?php endif; ?>
 			<h2><?=$product->nombre?></h2>
 		</a>
