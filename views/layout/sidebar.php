@@ -23,9 +23,9 @@
 			<h3>Entrar a la web</h3>
 			<form action="<?=base_url?>usuario/login" method="post">
 				<label for="email">Email</label>
-				<input type="email" name="email" placeholder="email" alt="email" title="email" required/>
+				<input type="email" id="email" name="email" placeholder="email" title="email" required/>
 				<label for="password">Contraseña</label>
-				<input type="password" name="password" placeholder="password" alt="password" title="password" required/>
+				<input type="password" id="password" name="password" placeholder="password" title="password" required/>
 				<input type="submit" value="Enviar" />
 			</form>
 		<?php else: ?>
