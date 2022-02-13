@@ -4,9 +4,9 @@
 	<div class="product container-fluid m-auto col-lg-4 col-sm-12">
 		<a href="<?= base_url ?>producto/ver&id=<?= $product->id ?>">
 			<?php if ($product->imagen != null) : ?>
-				<img alt="<?= $product->nombre ?>" src="<?= base_url ?>uploads/images/<?= $product->imagen ?>" />
+				<img alt="<?= $product->descripcion ?>" src="<?= base_url ?>uploads/images/<?= $product->imagen ?>" />
 			<?php else : ?>
-				<img alt="<?= $product->nombre ?>" src="<?= base_url ?>assets/img/camiseta.png" />
+				<img alt="<?= $product->descripcion ?>" src="<?= base_url ?>assets/img/camiseta.png" />
 			<?php endif; ?>
 			<h2><?= $product->nombre ?></h2>
 		</a>
